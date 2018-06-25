@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>jQuery-チェックをつけないとボタンが押せなくする方法</title>
+        <meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>  
+<div id="wrapper">
+ 
+<div class="sample01"><label><input type="checkbox">同意する(同意するにチェックがついていないと下のボタンはクリックできません。)</label></div>
+<div class="sample02">
+<a href="#"><input type="button" alt=""></a>
+</div>
+ 
+</div>
+ 
+ 
+<script src="http://www.tagindex.com/html_tag/form/textarea.html"></script>
+<script type="text/javascript">
+$(function(){
+           //送信ボタンの無効、チェックボックスを外す
+            $(".sample02 input").css({opacity:"0.5",cursor:"default"}).attr("disabled","disabed");
+            $(".sample01 input:checkbox").attr('checked',false);
+           //チェックボックスがクリックされると送信ボタン有効
+            $(".sample01 label,.sample01 input").click(function(){
+                if($(".sample01 input:checkbox").is(':checked')){
+                    $(".sample02 input").css({opacity:"1",cursor:"pointer"}).removeAttr("disabled");
+                }else{
+                     $(".sample02 input").css({opacity:"0.5",cursor:"default"}).attr("disabled","disabed");
+            }
+        })
+});
+</script>
+ 
+</body>
+</html>

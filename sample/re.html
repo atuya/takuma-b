@@ -1,0 +1,38 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(function(){
+  $("#form").on('submit',function(e){
+    var flg=$(this).find('input[name="question1[]"]:checked').length==0;
+    if(flg){
+      e.preventDefault();
+      alert("１つ以上選択してください");
+    }
+  });
+});
+</script>
+
+</head>
+<body>
+
+<form action ="send.php" method="post" id="form">
+<h1 align="center">あんけえと</h1>
+<hr>
+<div class="question" align="center">
+<p>Q1.くえすちょん</p>
+<p align="left" style="display:inline-block;">
+    <input type='checkbox' name='question1[]' value='いち'>いち<br>
+    <input type='checkbox' name='question1[]' value='に'>に<br>
+    <input type='checkbox' name='question1[]' value='さん'>さん<br>
+    <input type='checkbox' name='question1[]' value='よん'>よん<br>
+    <input type='checkbox' name='question1[]' value='ご'>ご<br>
+    <input type='hidden' name='question_id' value='1'>
+</p>
+</div>
+<div align="right">
+<input type="submit" value="送信する" id="send" name="send" style="width:100px; height:30px;">
+</div>
+</form>
+<div id="error">
+</div>
+</body>
+</html>

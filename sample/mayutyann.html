@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>チェックボックスとボタンの連動</title>
+   <link rel="stylesheet" href="">
+</head>
+<body>
+        <input id="check" type="checkbox" onclick="checkValue(this)">
+
+    <!-- 初期状態では押せないbutton -->
+    <input id="btn" type="button" value="押せない" disabled="disabled">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+       /* buttonのdisable属性を書き換える */
+       function checkValue(check){
+           var btn = document.getElementById('btn');
+
+           if (check.checked) {
+               btn.value = '押せる';
+               btn.removeAttribute('disabled');
+           } else {
+               btn.value = '押せない';
+               btn.setAttribute('disabled', 'disabled');
+           }
+       }
+   </script>
+</body>
+</html>
